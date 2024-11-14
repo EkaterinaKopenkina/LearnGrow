@@ -1,0 +1,113 @@
+.form {
+    &__label {
+        @include adaptSize(18, 14);
+        font-weight: 600;
+    }
+
+    &__label-container {
+        margin-bottom: 10px;
+    }
+
+    &__field,
+    &__dropdown-btn {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 5px;
+        border: 3px solid rgba($colorText1, .7);
+        @include adaptSize(14, 12);
+        transition: all .2s linear;
+        background-color: #fff;
+        font-weight: 500;
+
+        &::placeholder {
+            color: rgba($colorText1, .6);
+        }
+
+        &:focus {
+            border: 3px solid $colorText2;
+        }
+
+        &.error {
+            border: 3px solid $colorError;
+            color: $colorError;
+        }
+    }
+
+    &__dropdown-btn {
+        color: rgba($colorText1, .6);
+        text-align: left;
+        position: relative;
+
+        &--value {
+            color: $colorText1;
+        }
+    }
+
+    &__dropdown-field {
+        display: none;
+    }
+
+    &__dropdown-field-container {
+        position: relative;
+
+        &:hover {
+            & .form__dropdown-list-container {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            & .form__dropdown-btn {
+                border: 3px solid $colorText2;
+            }
+
+            & .form__dropdown-icon {
+                fill: $colorText2;
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+    }
+
+    &__dropdown-list-container {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: translateY(100%);
+        z-index: $zDefault;
+        width: 100%;
+        padding-top: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .2s linear;
+    }
+
+    &__dropdown-list {
+        padding: 10px 0;
+        background-color: #fff;
+        border-radius: 10px;
+        border: 3px solid $colorText2;
+    }
+
+    &__dropdown-item {
+        padding: 10px 15px;
+        @include adaptSize(14, 10);
+        transition: background-color .2s linear;
+        width: 100%;
+        text-align: left;
+
+        &:hover {
+            background-color: rgba($colorBg2, .2);
+        }
+    }
+
+    &__dropdown-icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        z-index: $zDefault;
+        fill: $colorText1;
+        width: 23px;
+        height: 23px;
+        transition: all .2s linear;
+    }
+}

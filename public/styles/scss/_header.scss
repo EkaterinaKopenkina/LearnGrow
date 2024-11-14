@@ -1,0 +1,51 @@
+.header {
+    height: $heightHeader;
+    background-color: $colorBg2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $zHeader;
+    width: 100%;
+    padding: 15px 0;
+    box-shadow: 0px 5px 21px -7px rgba(34, 60, 80, 0.6);
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        height: 100%;
+        width: 70px;
+    }
+
+    &__login {
+        font-weight: 600;
+        @include adaptSize(18, 12);
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            color: $colorText3;
+            transition: color .2s linear;
+
+            &>.header__login-icon {
+                fill: $colorDarkDef;
+            }
+        }
+    }
+
+    &__login-icon {
+        fill: $colorText1;
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+        transition: fill .2s linear;
+
+        &--auth {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}

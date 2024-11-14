@@ -1,0 +1,152 @@
+// Import
+@import "vars";
+@import "mixins";
+@import "supports";
+@import "header";
+@import "intro";
+@import "about";
+@import "way";
+@import "login";
+@import "registration";
+@import "form";
+@import "sidebar";
+
+// Fonts
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/fonts/montserrat_regular.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/fonts/montserrat_regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/fonts/montserrat_regular.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/fonts/montserrat_regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/fonts/montserrat_regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/fonts/montserrat_regular.svg#montserrat_regular') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/fonts/montserrat_semibold.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/fonts/montserrat_semibold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/fonts/montserrat_semibold.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/fonts/montserrat_semibold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/fonts/montserrat_semibold.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/fonts/montserrat_semibold.svg#montserrat_semibold') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/fonts/montserrat_medium.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/fonts/montserrat_medium.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/fonts/montserrat_medium.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/fonts/montserrat_medium.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/fonts/montserrat_medium.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/fonts/montserrat_medium.svg#montserrat_medium') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/fonts/montserrat_bold.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/fonts/montserrat_bold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/fonts/montserrat_bold.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/fonts/montserrat_bold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/fonts/montserrat_bold.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/fonts/montserrat_bold.svg#montserrat_bold') format('svg'); /* Chrome < 4, Legacy iOS */
+    font-weight: 700;
+    font-style: normal;
+}
+
+// Style
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $colorBg1;
+    font-size: 16px;
+    color: $colorText1;
+    font-family: 'Montserrat';
+    font-weight: 400;
+
+    &.no-scroll {
+		overflow: hidden;
+	}
+}
+
+:focus, :active {
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-weight: 400;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+
+    &:visited {
+        text-decoration: none;
+    }
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+button {
+	background: none;
+	border: none;
+	font-size: inherit;
+	cursor: pointer;
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+}
+
+input,
+textarea {
+	font-family: inherit;
+	border: none;
+
+    &::-ms-clear {
+        display: none;
+    }
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+		outline: none;
+	}
+}
+
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}

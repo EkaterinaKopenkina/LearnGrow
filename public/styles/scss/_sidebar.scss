@@ -1,0 +1,28 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: $zSidebar;
+    padding-top: $heightHeader;
+    background-color: $colorBg2;
+    height: 100vh;
+    width: $widthSidebar;
+    -webkit-box-shadow: 4px 0px 14px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 0px 14px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 0px 14px 0px rgba(34, 60, 80, 0.2);
+
+    &__inner {
+        padding: 50px 25px 40px 60px;
+    }
+
+    &__item {
+       @include adaptSize(18, 14);
+       font-weight: 500; 
+    }
+
+    &__item-container {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+}

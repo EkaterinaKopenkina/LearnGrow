@@ -1,0 +1,32 @@
+// Photo
+@mixin photo ($width, $height, $br) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: $width;
+    height: $height;
+    border-radius: $br;
+}
+
+@mixin img () {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+// Font
+@mixin adaptSize ($sizeMax, $sizeMin) {
+    font-size: #{$sizeMax + px};
+
+    @media (max-width: 1390px) {
+        font-size: calc(#{$sizeMin + px} + ($sizeMax - $sizeMin) * ((100vw - 320px) / (1390 - 320)));
+    }
+}
+
+@mixin textRestriction ($count) {
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}
