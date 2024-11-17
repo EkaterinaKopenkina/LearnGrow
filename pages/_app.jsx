@@ -15,13 +15,13 @@ const App = ({ Component, pageProps }) => {
 
   const myCourses = {
     name: "Мои курсы",
-    icon: <CoursesIcon />,
+    icon: <CoursesIcon/>,
     href: "/courses",
   }
 
   const academicRecord = {
     name: "Успеваемость",
-    icon: <AcademicRecordIcon />,
+    icon: <AcademicRecordIcon/>,
     href: "/record",
   }
 

@@ -13,6 +13,7 @@ const Sidebar = ({navList, activeItem}) => {
 const SidebarItem = ({item}) => {
     return (
         <div className="sidebar__item-container">
+            <div className="sidebar__icon">{item.icon}</div>
             <Link href={item.href} className="sidebar__item">{item.name}</Link>
         </div>
     )

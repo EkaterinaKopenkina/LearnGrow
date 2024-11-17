@@ -18,11 +18,32 @@
     &__item {
        @include adaptSize(18, 14);
        font-weight: 500; 
+       transition: color .2s linear;
     }
 
     &__item-container {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         display: flex;
         align-items: center;
+
+        &:hover {
+            & .sidebar__item {
+                color: $colorText3;
+            }
+            & svg {
+                fill: $colorDarkDef;
+            }
+        }
+    }
+
+    &__icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 7px;
+
+        & > svg {
+            fill: $colorText1;
+            transition: fill .2s linear;
+        }
     }
 }
