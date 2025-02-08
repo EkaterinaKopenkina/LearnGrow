@@ -1,0 +1,65 @@
+.sidebar {
+    background-color: $colorBgSecondary;
+    width: $widthSidebar;
+    -webkit-box-shadow: 4px 0px 14px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 0px 14px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 0px 14px 0px rgba(34, 60, 80, 0.2);
+    position: relative;
+    min-height: calc(100vh - $heightHeader);
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        z-index: $zDefault;
+        background-color: $colorBgSecondary;
+        height: 100%;
+        width: 100vw;
+    }
+
+    &__inner {
+        padding: 50px 25px 40px 0;
+    }
+
+    &__item {
+       @include adaptSize(18, 14);
+       font-weight: 500; 
+       transition: color .2s linear;
+    }
+
+    &__item-container {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+
+        &.active {
+            color: $colorActive;
+
+            & svg {
+                fill: $colorActive;
+            }
+        }
+
+        &:hover {
+            & .sidebar__item {
+                color: $colorActive;
+            }
+            & svg {
+                fill: $colorActive;
+            }
+        }
+    }
+
+    &__icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 7px;
+
+        & > svg {
+            fill: $colorPrimary;
+            transition: fill .2s linear;
+        }
+    }
+}

@@ -2,35 +2,16 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import '../public/styles/style.css';
 import Head from 'next/head';
-import Header from '../components/layout/header/ui/header';
-import Sidebar from '../components/layout/sidebar/sidebar';
-
-import CoursesIcon from "../public/icons/courses-icon"
-import AcademicRecordIcon from "../public/icons/academic-record-icon";
+import Header from '../components/layout/header/header';
+import { getSidebar } from '../components/layout/sidebar/model/functions';
+import { useCookies } from 'react-cookie';
 
 const App = ({ Component, pageProps }) => {
+  const [cookies, setCookie, removeCookie] = useCookies(['login', 'id']);  
   const router = useRouter();
-  const currentUrl = router.asPath;
-  let sidebar;
-
-  const myCourses = {
-    name: "Мои курсы",
-    icon: <CoursesIcon/>,
-    href: "/courses",
-  }
-
-  const academicRecord = {
-    name: "Успеваемость",
-    icon: <AcademicRecordIcon/>,
-    href: "/record",
-  }
-
-  switch (currentUrl) {
-    case "/account":
-      sidebar = <Sidebar 
-        navList={[myCourses, academicRecord]}
-      />
-  }
+  const currentUrl = router.asPath.split('/');
+  const userId = currentUrl[currentUrl.indexOf("account") + 1];
+  const sidebar = getSidebar(currentUrl);
 
   return (
     <>
@@ -41,12 +22,22 @@ const App = ({ Component, pageProps }) => {
         <title>Learn & Grow</title>
       </Head>
 
-      <Header />
+      <Header isAuth={!!cookies.login} userId={cookies.id} />
 
-      <main className="page">
-        { sidebar }
-        <Component {...pageProps} />
-      </main>
+      {
+        sidebar
+        ? <main className="page page--account">
+            <div className="container">
+              <div className="account__container">
+                { sidebar }
+                <Component {...pageProps} userId={userId} cookie={cookies} />
+              </div>
+            </div>
+          </main>
+        : <main className="page">
+            <Component {...pageProps} cookie={{cookies, setCookie, removeCookie}} router={router} />
+          </main>
+      }
     </>
   )
 }

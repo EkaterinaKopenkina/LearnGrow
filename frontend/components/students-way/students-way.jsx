@@ -4,7 +4,7 @@ import way3 from "./img/way3.svg";
 import way4 from "./img/way4.svg";
 import way5 from "./img/way5.svg";
 
-import UiWay from '../helpers/ui-way';
+import UiWay from '../helpers/ui-way/ui-way';
 import UiSection from "../helpers/ui-section";
 
 const StudentsWay = () => {
@@ -17,9 +17,7 @@ const StudentsWay = () => {
     ]
     return (
         <UiSection title = 'Путь ученика' color = '1'>
-            <div className="container">
-                <UiWay steps={steps}/>
-            </div>
+            <UiWay steps={steps}/>
         </UiSection>
     )
 }

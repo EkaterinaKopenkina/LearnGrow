@@ -1,3 +1,6 @@
+import introSrc from "./img/intro.svg"
+import Image from "next/image";
+
 const Intro = () => {
     return (
         <section className="intro">
@@ -9,6 +12,10 @@ const Intro = () => {
                             Сервис для школьного <br />
                             Онлайн-обучения
                         </p>
+                    </div>
+
+                    <div className="intro__img-container">
+                        <Image className="intro__img" src={introSrc} alt="Интро" />
                     </div>
                 </div>
             </div>

@@ -1,11 +1,11 @@
-import { ErrorMessage, Field } from "formik";
+import { ErrorMessage, Field, setIn } from "formik";
 import ArrowTopIcon from "./icons/arrow-top-icon";
 import { useState } from "react";
 import clsx from "clsx";
 
-const UiDropdownField = ({type, id, name, label, placeholder, items, component = 'input'}) => {
-    const [inputsValue, setInputsValue] = useState("");
-    
+const UiDropdownField = ({type, id, name, label, placeholder, items, setCurrentValue, component = 'input'}) => {
+    const [inputValue, setInputValue] = useState(null);
+
     return (
         <div className="from__field-container">
             <div className="form__label-container">
@@ -13,21 +13,28 @@ const UiDropdownField = ({type, id, name, label, placeholder, items, component =
             </div>
 
             <div className="form__dropdown-field-container">
-                <Field className="form__dropdown-field" value={inputsValue} id={id} type={type} name={name} placeholder={placeholder} component={component} />
+                <Field className="form__dropdown-field" 
+                    id={id} type={type} 
+                    name={name} 
+                    placeholder={placeholder} 
+                    component={component} 
+                />
                 <button disabled className={clsx(
                     "form__dropdown-btn",
-                    inputsValue && "form__dropdown-btn--value"
+                    inputValue && "form__dropdown-btn--value"
                 )}>
-                    {inputsValue || placeholder}
+                    {inputValue || placeholder}
                     <ArrowTopIcon className="form__dropdown-icon"/>
                 </button>
 
                 <div className="form__dropdown-list-container">
                     <div className="form__dropdown-list">
-                        {items.map((item, i) => <UiDrowdownItem
-                            key={i}
+                        {items.map(item => <UiDrowdownItem
+                            key={item.id}
                             item={item}
-                            setInputsValue={setInputsValue}
+                            setCurrentValue={setCurrentValue}
+                            setInputValue={setInputValue}
+                            nameField={name}
                         />)}
                     </div>
                 </div>
@@ -38,10 +45,14 @@ const UiDropdownField = ({type, id, name, label, placeholder, items, component =
     )
 }
 
-const UiDrowdownItem = ({item, setInputsValue}) => {
+const UiDrowdownItem = ({item, setCurrentValue, setInputValue, nameField}) => {
     return (
-        <div onClick={() => {setInputsValue(item)}} className="form__dropdown-item">
-            {item}
+        <div onClick={() => {
+            setCurrentValue(nameField, item.id); 
+            setInputValue(item.title)
+        }} 
+        className="form__dropdown-item">
+            {item.title}
         </div>
     )
 }

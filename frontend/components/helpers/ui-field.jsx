@@ -8,7 +8,7 @@ const UiField = ({type, id, name, label, placeholder, component = 'input'}) => {
             </div>
 
             <Field className="form__field" id={id} type={type} name={name} placeholder={placeholder} component={component} />
-            <ErrorMessage className="form__error" name={name} component='div'/>
+            <ErrorMessage className="form__warning" name={name} component='div'/>
         </div>
     )
 }

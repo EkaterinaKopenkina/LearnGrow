@@ -1,45 +1,40 @@
 import { Form, Formik } from "formik";
 import UiButton from "../helpers/ui-button";
-import UiField from "../helpers/ui-field";
-import LoginForm from "./ui/login-form";
-import LoginLayout from "./ui/login-layout";
+import { loginFields, loginInitialValues } from "./model/constants";
+import { validateLogin } from "./model/validator";
+import { login } from "./model/functions";
+import { useState } from "react";
+import UiForm from "../helpers/ui-form";
+import UiAuthLayout from "../helpers/ui-auth-layout";
 
-const Login = () => {
-    const loginFields = [
-        <UiField 
-            type="text"
-            id="login_login"
-            name="login"
-            label="Логин:"
-            placeholder="Введите логин"
-        />,
-        <UiField 
-            type="password"
-            id="login_pass"
-            name="password"
-            label="Пароль:"
-            placeholder="Введите пароль"
-        />
-    ]
+const Login = ({cookie, router}) => {
+    const [statusMessage, setStatusMessage] = useState({error: null, success: null});
+
     return (
-        <LoginLayout>
+        <UiAuthLayout title='Вход'>
             <Formik
-                initialValues={{login: '', password: ''}}
+                initialValues={loginInitialValues}
+                validate={validateLogin}
                 onSubmit={(values, submitProps) => {
-                    console.log('Отправка формы login')
+                    login(values, submitProps, setStatusMessage, statusMessage, cookie, router);
                 }}
-                //validate={}
             > 
                 {(values) => (
                     <Form clasasName="form">
-                        <LoginForm 
-                            loginBtn={<UiButton values={values}>Войти</UiButton>} 
-                            loginFields={loginFields}
+                        <UiForm 
+                            fields={loginFields}
+                            success={statusMessage.success}
+                            error={statusMessage.error}
+                            btn={<UiButton values={values}>Войти</UiButton>} 
+                            hrefLink='/registration'
+                            textLink='Зарегистрируйся'
+                            hint='Нет аккаунта?'
+                            gridCount={2}
                         />
                     </Form>
                 )}
             </Formik>
-        </LoginLayout>
+        </UiAuthLayout>
     )
 }
 

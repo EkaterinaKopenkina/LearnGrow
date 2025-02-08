@@ -1,77 +1,41 @@
 import { Form, Formik } from "formik";
-import RegistrationForm from "./ui/registration-form";
-import RegistrationLayout from "./ui/registration-layout";
-import UiField from "../helpers/ui-field";
-import UiDropdownField from "../helpers/ui-dropdown-field"
+import UiAuthLayout from "../helpers/ui-auth-layout"
 import UiButton from "../helpers/ui-button";
+import { getFields, getInitialValues, registration } from "./model/functions";
+import { useState } from "react";
+import { validateReg } from "./model/validator";
+import UiForm from "../helpers/ui-form";
 
-const classes = ['5А', '5Б', '6В', '11', '10', '9А'];
+const Registration = ({classes}) => {
+    const [statusMessage, setStatusMessage] = useState({error: null, success: null});
 
-const Registration = () => {
-    const regFields = [
-        <UiField 
-            type="text"
-            id="reg_name"
-            name="name"
-            label="Имя:"
-            placeholder="Введите Ваше имя"
-        />,
-        <UiField 
-            type="text"
-            id="reg_lastname"
-            name="lastname"
-            label="Фамилия:"
-            placeholder="Введите Вашу фамилию"
-        />,
-        <UiDropdownField
-            type="text"
-            id="reg_class"
-            name="class"
-            label="Класс:"
-            placeholder="Выберите Ваш класс"
-            items={classes}
-        />,
-        <UiField 
-            type="email"
-            id="reg_email"
-            name="email"
-            label="Почта:"
-            placeholder="Выберите почту"
-        />,
-        <UiField 
-            type="text"
-            id="reg_login"
-            name="login"
-            label="Логин:"
-            placeholder="Введите логин"
-        />,
-        <UiField 
-            type="password"
-            id="reg_pass"
-            name="password"
-            label="Пароль:"
-            placeholder="Введите пароль"
-        />
-    ]
     return (
-        <RegistrationLayout>
+        <UiAuthLayout title='Регистрация'>
             <Formik
-                initialValues={{login: '', password: ''}}
+                initialValues={getInitialValues()}
+                validate={validateReg}
                 onSubmit={(values, submitProps) => {
-                    console.log('Отправка формы reg')
+                    registration(values, submitProps, setStatusMessage, statusMessage);
                 }}
-                //validate={}
+                
             > 
-                {(values) => (
+                {(values) => {
+                    return (
                     <Form clasasName="form">
-                        <RegistrationForm 
-                            regFields={regFields}
-                            regBtn={<UiButton values={values}>Зарегистрироваться</UiButton>}
+                        <UiForm 
+                            fields={getFields(classes, values.setFieldValue)}
+                            success={statusMessage.success}
+                            error={statusMessage.error}
+                            btn={<UiButton values={values}>Зарегистрироваться</UiButton>}
+                            hrefLink='/login'
+                            textLink='Войди'
+                            hint='Создал аккаунт?'
+                            gridCount={3}
                         />
-                    </Form>
-                )}
+                    </Form>)
+                }}
             </Formik>
-        </RegistrationLayout>
+        </UiAuthLayout>
     )
 }
 

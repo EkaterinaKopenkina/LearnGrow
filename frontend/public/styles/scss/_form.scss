@@ -1,4 +1,40 @@
 .form {
+    &__hint {
+        @include adaptSize(16, 12);
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    &__link {
+        margin-left: 8px;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__btn {
+        text-align: center;
+    }
+
+    &__fields {
+        display: grid;
+        grid-gap: 40px;
+        margin: 0 auto;
+        margin-bottom: 60px;
+        max-width: 1000px;
+
+        &--2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &--3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
     &__label {
         @include adaptSize(18, 14);
         font-weight: 600;
@@ -13,18 +49,18 @@
         width: 100%;
         padding: 15px 20px;
         border-radius: 5px;
-        border: 3px solid rgba($colorText1, .7);
+        border: 3px solid rgba($colorPrimary, .7);
         @include adaptSize(14, 12);
         transition: all .2s linear;
         background-color: #fff;
         font-weight: 500;
 
         &::placeholder {
-            color: rgba($colorText1, .6);
+            color: rgba($colorPrimary, .6);
         }
 
         &:focus {
-            border: 3px solid $colorText2;
+            border: 3px solid $colorSecondary;
         }
 
         &.error {
@@ -34,17 +70,19 @@
     }
 
     &__dropdown-btn {
-        color: rgba($colorText1, .6);
+        color: rgba($colorPrimary, .6);
         text-align: left;
         position: relative;
 
         &--value {
-            color: $colorText1;
+            color: $colorPrimary;
         }
     }
 
     &__dropdown-field {
-        display: none;
+        visibility: hidden;
+        position: absolute;
+        z-index: $zHidden;
     }
 
     &__dropdown-field-container {
@@ -57,11 +95,11 @@
             }
 
             & .form__dropdown-btn {
-                border: 3px solid $colorText2;
+                border: 3px solid $colorSecondary;
             }
 
             & .form__dropdown-icon {
-                fill: $colorText2;
+                fill: $colorSecondary;
                 transform: translateY(-50%) rotate(180deg);
             }
         }
@@ -81,10 +119,13 @@
     }
 
     &__dropdown-list {
+        max-height: 250px;
+        overflow: auto;
         padding: 10px 0;
         background-color: #fff;
         border-radius: 10px;
-        border: 3px solid $colorText2;
+        border: 3px solid $colorSecondary;
+        @include scroll();
     }
 
     &__dropdown-item {
@@ -93,9 +134,10 @@
         transition: background-color .2s linear;
         width: 100%;
         text-align: left;
+        cursor: pointer;
 
         &:hover {
-            background-color: rgba($colorBg2, .2);
+            background-color: rgba($colorBgSecondary, .2);
         }
     }
 
@@ -105,9 +147,33 @@
         right: 15px;
         transform: translateY(-50%);
         z-index: $zDefault;
-        fill: $colorText1;
+        fill: $colorPrimary;
         width: 23px;
         height: 23px;
         transition: all .2s linear;
+    }
+
+    &__error,
+    &__success {
+        @include adaptSize(16, 14);
+        margin-bottom: 15px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    &__success {
+        color: $colorSuccess;
+    }
+
+    &__error {
+        color: $colorError;
+    }
+
+    &__warning {
+        @include adaptSize(16, 12);
+        margin-top: 10px;
+        font-weight: 500;
+        text-align: center;
+        color: $colorError;
     }
 }

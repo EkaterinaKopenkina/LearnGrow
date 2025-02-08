@@ -2,14 +2,16 @@
 @import "vars";
 @import "mixins";
 @import "supports";
-@import "header";
-@import "intro";
-@import "about";
-@import "way";
-@import "login";
-@import "registration";
+@import "../../../components/helpers/ui-way/scss/way";
 @import "form";
-@import "sidebar";
+@import "../../../components/layout/header/scss/header";
+@import "../../../components/intro/scss/intro";
+@import "../../../components/about/scss/about";
+@import "../../../components/layout/sidebar/scss/sidebar";
+@import "../../../components/account/scss/account";
+@import "../../../components/courses/scss/courses";
+@import "../../../components/course/scss/course";
+@import "media";
 
 // Fonts
 @font-face {
@@ -74,9 +76,9 @@
 }
 
 body {
-    background-color: $colorBg1;
+    background-color: $colorBgPrimary;
     font-size: 16px;
-    color: $colorText1;
+    color: $colorPrimary;
     font-family: 'Montserrat';
     font-weight: 400;
 

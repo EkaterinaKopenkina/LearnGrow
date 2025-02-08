@@ -1,22 +1,23 @@
 // Colors
-$colorBg1: #fffae7;
-$colorBg2: #fad489;
-$colorBg3: #fff;
-$colorText1: #424551;
-$colorText2: #fcc85f;
-$colorText3: #ff7300; 
-$colorDef: #fcc85f;
-$colorDarkDef: #ff7300; 
+$colorBgPrimary: #fffae7;
+$colorBgSecondary: #fad489;
+$colorBgThird: #fff;
+$colorPrimary: #424551;
+$colorSecondary: #fcc85f;
+$colorActive: #ff7300;  
 $colorError: #c01414;
+$colorSuccess: #00c63b;
 
 // Size
 $heightHeader: 80px;
+$heightHeaderTablet: 65px;
 $widthSidebar: 300px;
 
 // Z-index
 $zHeader: 100;
 $zSidebar: 99;
 $zDefault: 10;
+$zHidden: -1;
 
 // Paddins
 $paddingSection: 80px;

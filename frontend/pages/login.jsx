@@ -1,7 +1,7 @@
 import Login from "../components/login/login";
 
-const LoginPage = () => {
-    return <Login />
+const LoginPage = ({cookie, router}) => {
+    return <Login cookie={cookie} router={router} />
 }
 
 export default LoginPage;

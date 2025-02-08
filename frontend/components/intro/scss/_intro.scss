@@ -1,0 +1,49 @@
+.intro {
+    height: calc(100vh - $heightHeader);
+
+    &__inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background-image: url('../img/intro.svg');
+        background-position: center right;
+        background-repeat: no-repeat;
+        padding: 30px 0;
+    }
+
+    &__img-container {
+        display: none;
+    }
+
+    &__img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+
+    &__title {
+        font-weight: 700;
+        @include adaptSize(60, 20);
+        color: $colorSecondary;
+        position: relative;
+        margin-bottom: 40px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80%;
+            height: 3px;
+            background-color: $colorSecondary;
+            z-index: $zDefault;
+        }
+    }
+
+    &__subtitle {
+        @include adaptSize(22, 16);
+        color: $colorSecondary;
+        font-weight: 500;
+    }
+}
