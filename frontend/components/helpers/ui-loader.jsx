@@ -3,8 +3,8 @@ const UiLoader = ({container}) => {
         <>
             {
                 container
-                ? <div className="loader__container"><span class="loader"></span></div>
-                : <span class="loader"></span>
+                ? <div className="loader__container"><span className="loader"></span></div>
+                : <span className="loader"></span>
             }
         </>
     )

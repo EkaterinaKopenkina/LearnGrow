@@ -16,11 +16,11 @@ const Login = ({cookie, router}) => {
                 initialValues={loginInitialValues}
                 validate={validateLogin}
                 onSubmit={(values, submitProps) => {
-                    login(values, submitProps, setStatusMessage, statusMessage, cookie, router);
+                    //login(values, submitProps, setStatusMessage, statusMessage, cookie, router);
                 }}
             > 
                 {(values) => (
-                    <Form clasasName="form">
+                    <Form className="form">
                         <UiForm 
                             fields={loginFields}
                             success={statusMessage.success}
@@ -30,6 +30,8 @@ const Login = ({cookie, router}) => {
                             textLink='Зарегистрируйся'
                             hint='Нет аккаунта?'
                             gridCount={2}
+                            customBtn={5}
+                            customHint={4}
                         />
                     </Form>
                 )}

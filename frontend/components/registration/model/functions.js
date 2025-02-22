@@ -1,22 +1,27 @@
-import UiField from "../../helpers/ui-field";
-import UiDropdownField from "../../helpers/ui-dropdown-field";
+import UiMField from "../../helpers/ui-field";
+import UiDropdownField from "../../helpers/ui-dropdown-field/ui-dropdown-field";
 import { postData } from "../../../api/api";
+import { scaleAnimation } from "../../../animation/animation";
 
 export const getFields = (classes, setClass) => {
     return [
-        <UiField key={1}
+        <UiMField key={1}
             type="text"
             id="reg_name"
             name="name"
             label="Имя:"
             placeholder="Введите Ваше имя"
+            variants={scaleAnimation}
+            custom={3}
         />,
-        <UiField key={2}
+        <UiMField key={2}
             type="text"
             id="reg_lastname"
             name="lastname"
             label="Фамилия:"
             placeholder="Введите Вашу фамилию"
+            variants={scaleAnimation}
+            custom={4}
         />,
         <UiDropdownField key={3}
             type="text"
@@ -26,27 +31,35 @@ export const getFields = (classes, setClass) => {
             placeholder="Выберите Ваш класс"
             items={classes}
             setCurrentValue={setClass}
+            variants={scaleAnimation}
+            custom={5}
         />,
-        <UiField key={4}
+        <UiMField key={4}
             type="email"
             id="reg_email"
             name="email"
             label="Почта:"
             placeholder="Выберите почту"
+            variants={scaleAnimation}
+            custom={6}
         />,
-        <UiField key={5}
+        <UiMField key={5}
             type="text"
             id="reg_login"
             name="login"
             label="Логин:"
             placeholder="Введите логин"
+            variants={scaleAnimation}
+            custom={7}
         />,
-        <UiField key={6}
+        <UiMField key={6}
             type="password"
             id="reg_pass"
             name="password"
             label="Пароль:"
             placeholder="Введите пароль"
+            variants={scaleAnimation}
+            custom={8}
         />
     ]
 }

@@ -1,9 +1,17 @@
 import Image from "next/image";
 import srcError from "./img/error.svg"
+import { motion } from "framer-motion";
+import { scaleAnimation } from "../../animation/animation";
 
 const UiError = () => {
     return (
-        <div className="error">
+        <motion.div 
+            className="error"
+            initial="hidden"
+            animate="visible"
+            variants={scaleAnimation}
+            custom={3}
+        >
             <div className="container">
                 <div className="error__inner">
                     <div className="error__img-container">
@@ -15,7 +23,7 @@ const UiError = () => {
                     </p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

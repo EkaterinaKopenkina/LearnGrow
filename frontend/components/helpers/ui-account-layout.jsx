@@ -1,9 +1,24 @@
+import { motion } from "framer-motion";
+import { leftAnimation } from "../../animation/animation";
+
 const UiAccountLayout = ({title, children, className}) => {
     return (
-        <section className={`${className} account`}>
-            <h1 className="account__title">{title}</h1>
+        <motion.section 
+            className={`${className || ''} account`}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2 }}
+        >
+            <motion.h1 
+                className="account__title"
+                variants={leftAnimation}
+                custom={3}
+            >
+                {title}
+            </motion.h1>
+            
             {children}
-        </section>
+        </motion.section>
     )
 }
 

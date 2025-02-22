@@ -1,3 +1,4 @@
+import { bottomAnimation } from "../../../animation/animation";
 import iconBg from "./img/icon-bg.svg";
 import WayItem from "./ui/way-item";
 import WayItems from "./ui/way-items";
@@ -9,7 +10,10 @@ const UiWay = ({steps}) => {
                 image={step.image} 
                 iconBg={iconBg}
                 text={step.text}
-                numStep={i+1} />
+                numStep={i+1}
+                variants={bottomAnimation}
+                custom={i+1}
+                />
             )}
         </WayItems>
     )

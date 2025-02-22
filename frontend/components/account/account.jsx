@@ -25,12 +25,13 @@ const Account = ({data, userId, token}) => {
                 }}
             > 
                 {(values) => (
-                    <Form clasasName="form">
+                    <Form className="form">
                         <AccountForm 
                             fields={accountFields}
                             btn={<UiButton values={values}>Сохранить</UiButton>}
                             success={statusMessage.success}
                             error={statusMessage.error}
+                            custom={6}
                         />
                     </Form>
                 )}

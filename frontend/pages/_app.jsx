@@ -23,6 +23,7 @@ const App = ({ Component, pageProps }) => {
       </Head>
 
       <Header isAuth={!!cookies.login} userId={cookies.id} />
+      {/* <Header /> */}
 
       {
         sidebar

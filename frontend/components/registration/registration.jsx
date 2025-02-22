@@ -21,7 +21,7 @@ const Registration = ({classes}) => {
             > 
                 {(values) => {
                     return (
-                    <Form clasasName="form">
+                    <Form className="form">
                         <UiForm 
                             fields={getFields(classes, values.setFieldValue)}
                             success={statusMessage.success}
@@ -31,6 +31,8 @@ const Registration = ({classes}) => {
                             textLink='Войди'
                             hint='Создал аккаунт?'
                             gridCount={3}
+                            customBtn={10}
+                            customHint={9}
                         />
                     </Form>)
                 }}

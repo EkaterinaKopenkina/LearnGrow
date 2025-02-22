@@ -17,7 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
         return user
     
 class StudentsSerializer(serializers.ModelSerializer):
-    user = UserSerializer() 
+    #user = UserSerializer() 
     
     class Meta:
         model = Students

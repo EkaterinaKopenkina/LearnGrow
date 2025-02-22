@@ -73,3 +73,10 @@
         display: none;
     }
 }
+
+// Animation
+@mixin animationScale($name) {
+    transform: scale(1);
+    opacity: 0;
+    animation: $name .2s forwards;
+}

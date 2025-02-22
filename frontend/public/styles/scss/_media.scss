@@ -37,6 +37,15 @@
         }
     }
 
+    // Account
+    .account {
+        padding-left: 40px;
+
+        &__fields {
+            grid-column-gap: 40px;
+        }
+    }
+
     // Way
     .way {
         &__items {
@@ -91,6 +100,8 @@
 
     // Account
     .account {
+        padding-left: 0;
+
         &__container {
             flex-direction: column;
             min-height: calc(100vh - $heightHeaderTablet);
@@ -98,12 +109,6 @@
     }
 
     // Error
-    .error {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
     .error-404 {
         &__img {
             max-width: 300px;
@@ -256,10 +261,6 @@
             grid-gap: 30px;
             margin-bottom: 45px;
         }
-
-        &__hint {
-            margin-bottom: 20px;
-        }
     }
 
     // Auth
@@ -273,6 +274,20 @@
     .btn {
         padding: 12px 20px;
         min-width: 140px;
+    }
+
+    // Account
+    .account {
+        padding: 60px 0;
+
+        &__title {
+            margin-bottom: 40px;
+        }
+
+        &__fields {
+            grid-template-columns: 1fr;
+            margin-bottom: 40px;
+        }
     }
 }
 

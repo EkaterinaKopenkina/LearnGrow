@@ -11,21 +11,6 @@ const RegistrationPage = () => {
 
     useEffect(() => {
         getData('classes/', setData, setLoading, setError);
-        // setData([
-        //     {id: 1, title: '5А'},
-        //     {id: 2, title: '11'},
-        //     {id: 3, title: '5А'},
-        //     {id: 4, title: '5А'},
-        //     {id: 5, title: '5А'},
-        //     {id: 6, title: '5А'},
-        //     {id: 7, title: '5А'},
-        //     {id: 8, title: '5А'},
-        //     {id: 9, title: '5А'},
-        //     {id: 10, title: '5А'},
-        //     {id: 11, title: '5А'},
-        //     {id: 12, title: '5А'},
-        // ])
-        // setLoading(false);
     }, [])
 
     if (loading) {

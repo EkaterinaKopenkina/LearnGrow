@@ -1,8 +1,10 @@
 import { ErrorMessage, Field } from "formik";
+import { motion } from "framer-motion";
+import { forwardRef } from "react";
 
-const UiField = ({type, id, name, label, placeholder, component = 'input'}) => {
+const UiField = forwardRef(({type, id, name, label, placeholder, component = 'input'}, ref) => {
     return (
-        <div className="from__field-container">
+        <div className="form__field-container" ref={ref}>
             <div className="form__label-container">
                 <label htmlFor={id} className="form__label">{label}</label>
             </div>
@@ -11,6 +13,8 @@ const UiField = ({type, id, name, label, placeholder, component = 'input'}) => {
             <ErrorMessage className="form__warning" name={name} component='div'/>
         </div>
     )
-}
+})
 
-export default UiField;
+const UiMField = motion(UiField);
+
+export default UiMField;

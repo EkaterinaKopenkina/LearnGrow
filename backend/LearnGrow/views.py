@@ -78,9 +78,10 @@ class Registration(generics.GenericAPIView):
             request.data["user"] =  user.id
 
             students_serializer = StudentsSerializer(data=request.data)
+            print(request.data)
             if students_serializer.is_valid():
                 student = students_serializer.save()
-                return Response(students_serializer.data)
+                return Response({'Вы успешно зарегистрировались!'}, status=status.HTTP_200_OK)
 
             user.delete()
             return Response({'Произошла ошибка!'}, status=status.HTTP_400_BAD_REQUEST)

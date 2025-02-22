@@ -13,6 +13,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+NEXT_BUILD_DIR = os.path.join(BASE_DIR, 'build')
+NEXT_SERVE_STATIC = True
+NEXT_STATIC_URL = '/static/'
+NEXT_STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
 
 # Application definition
 
@@ -27,6 +32,7 @@ INSTALLED_APPS = [
     
     'rest_framework',
     'corsheaders',
+    'django_nextjs',
 ]
 
 REST_FRAMEWORK = {

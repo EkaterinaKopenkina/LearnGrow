@@ -1,25 +1,39 @@
 import introSrc from "./img/intro.svg"
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { leftAnimation, rightAnimation } from "../../animation/animation";
 
 const Intro = () => {
     return (
-        <section className="intro">
+        <motion.section 
+            initial="hidden"
+            whileInView="visible"
+            className="intro"
+        >
             <div className="container">
                 <div className="intro__inner">
-                    <div className="intro__content">
+                    <motion.div 
+                        custom={2}
+                        variants={leftAnimation}
+                        className="intro__content"
+                    >
                         <h1 className="intro__title">Learn & Grow</h1>
                         <p className="intro__subtitle">
                             Сервис для школьного <br />
                             Онлайн-обучения
                         </p>
-                    </div>
+                    </motion.div>
 
-                    <div className="intro__img-container">
+                    <motion.div 
+                        custom={2}
+                        variants={rightAnimation}
+                        className="intro__img-container"
+                    >
                         <Image className="intro__img" src={introSrc} alt="Интро" />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }
 

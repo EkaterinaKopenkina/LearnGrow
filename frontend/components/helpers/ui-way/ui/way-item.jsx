@@ -1,8 +1,10 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { forwardRef } from "react";
 
-const WayItem = ({iconBg, image, text, numStep}) => {
+const WayItem = forwardRef(({iconBg, image, text, numStep}, ref) => {
     return (
-        <div className="way__item">
+        <div className="way__item" ref={ref}>
             <div className="way__icons-container">
                 <div className="way__icons">
                     <Image 
@@ -22,6 +24,8 @@ const WayItem = ({iconBg, image, text, numStep}) => {
             <p className="way__text">{text}</p>
         </div>
     )
-}
+})
 
-export default WayItem;
+const MWayItem = motion(WayItem);
+
+export default MWayItem;

@@ -1,12 +1,23 @@
-const AccountForm = ({fields, btn, success, error}) => {
+import { motion } from "framer-motion";
+import { bottomAnimation } from "../../../animation/animation";
+
+const AccountForm = ({fields, btn, success, error, custom}) => {
     return (
         <>
             <div className="account__fields">{fields}</div>
 
-            {!success || <div className="form__success">{success}</div>}
-            {!error || <div className="form__error">{error}</div>}
+            <div className="form__status">
+                {!success || <div className="form__success">{success}</div>}
+                {!error || <div className="form__error">{error}</div>}
+            </div>
             
-            <div className="account__btn">{btn}</div>
+            <motion.div 
+                className="account__btn"
+                variants={bottomAnimation}
+                custom={custom}
+            >
+                {btn}
+            </motion.div>
         </>
     )
 }

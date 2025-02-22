@@ -5,13 +5,13 @@ const rootUrl = 'http://127.0.0.1:8000/api/';
 export const getData = async(url, setData, setLoading, setError) => {
    await axios.get(`${rootUrl}${url}`)
       .then(result => {
-         console.log(result);
+         // console.log(result);
          setData(result.data);
          return result.data;
       })
       .catch(error => {
          // Здесь должа была быть обработка ошибок
-         console.log(error);
+         // console.log(error);
          setError(error);
       })
       .finally(() => {
@@ -31,13 +31,13 @@ export const getAuthData = async(url, setData, setLoading, setError, token) => {
       },
    })
    .then(result => {
-      console.log(result);
+      // console.log(result);
       setData(result.data);
       return result.data;
    })
    .catch(error => {
       // Здесь должа была быть обработка ошибок
-      console.log(error);
+      // console.log(error);
       setError(error);
    })
    .finally(() => {
@@ -48,10 +48,10 @@ export const getAuthData = async(url, setData, setLoading, setError, token) => {
 export const postData = async(url, data, setStatusMessage, oldStatuses) => {
    try {
       const response = await axios.post(`${rootUrl}${url}`, data);
-      console.log(response);
+      // console.log(response);
       setStatusMessage({
          ...oldStatuses,
-         success: response.data,
+         success: response.data[0] || "Операция успешно выполнена!",
          error: null
       });
       return response.data;
@@ -59,11 +59,9 @@ export const postData = async(url, data, setStatusMessage, oldStatuses) => {
       setStatusMessage({
          ...oldStatuses,
          success: null,
-         error: error.response.data[0] || "Произошла ошибка!"
+         error: error.response?.data[0] || "Произошла ошибка!"
       });
-      console.log(error);
    }
-   await axios.post(`${rootUrl}${url}`, data)
 }
 
 export const patchData = async (url, data, setStatusMessage, oldStatuses, token) => {
@@ -78,7 +76,7 @@ export const patchData = async (url, data, setStatusMessage, oldStatuses, token)
             Authorization: `Bearer ${token}`,
          },
       })
-      console.log(response);
+      // console.log(response);
       setStatusMessage({
          ...oldStatuses,
          success: 'Данные успешно обновлены!',
@@ -91,13 +89,14 @@ export const patchData = async (url, data, setStatusMessage, oldStatuses, token)
          success: null,
          error: error.response?.data[0] || "Произошла ошибка!"
       });
-      console.log(error);
+      // console.log(error);
+      return error;
    }
 }
 
-export const deleteData = (url) => {
-   return instance.delete(url)
-   .then(result => {
-      return result.data;
-   })
-}
+// export const deleteData = (url) => {
+//    return instance.delete(url)
+//    .then(result => {
+//       return result.data;
+//    })
+// }
