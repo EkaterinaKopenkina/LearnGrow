@@ -11,7 +11,7 @@ SECRET_KEY = 'django-insecure-*2omla*ar&0r81ptf%t8$k!25)_^zbqk=9_f%#4q-bsfw^x-0o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 NEXT_BUILD_DIR = os.path.join(BASE_DIR, 'build')
 NEXT_SERVE_STATIC = True
@@ -127,9 +127,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'LearnGrow',
-        'USER': 'django_admin',
-        'PASSWORD': '101yjvtrjg',
-        'HOST': '127.0.0.1',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
