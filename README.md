@@ -29,8 +29,14 @@ ___
 
 ### :rocket: Запуск проекта
 - Перейдите в корневой каталог проекта
-- "npm i" - установка зависимостей
-- "npm run dev" - запуск
+- cd frontend
+- npm i
+- npm run build
+- cd ../backend
+- python -m venv venv
+- ./venv/Scripts/activate
+- pip install -r requirements.txt
+- python manage.py runserver
 ___
 
 ### :paperclip: Разработчики
