@@ -32,7 +32,9 @@ ___
 - cd frontend
 - npm i
 - npm run build
-- cd ../backend
+- npm run dev
+- Откройте еще одну консоль параллельно с текущей
+- cd backend
 - python -m venv venv
 - ./venv/Scripts/activate
 - pip install -r requirements.txt
