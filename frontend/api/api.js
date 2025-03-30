@@ -2,7 +2,7 @@ import axios from "axios";
 
 const rootUrl = 'http://127.0.0.1:8000/api/';
 
-export const getData = async(url, setData, setLoading, setError) => {
+export const getData = async(url, setLoading, setError) => {
    await axios.get(`${rootUrl}${url}`)
       .then(result => {
          // console.log(result);

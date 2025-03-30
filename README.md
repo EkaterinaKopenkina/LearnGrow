@@ -21,6 +21,7 @@ ___
 - SASS
 - JS
 - React (Next.js)
+- Redux
 - Python
 - Django
 ___

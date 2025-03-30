@@ -2,12 +2,11 @@ import { Form, Formik } from "formik";
 import UiButton from "../helpers/ui-button";
 import { loginFields, loginInitialValues } from "./model/constants";
 import { validateLogin } from "./model/validator";
-import { login } from "./model/functions";
 import { useState } from "react";
 import UiForm from "../helpers/ui-form";
 import UiAuthLayout from "../helpers/ui-auth-layout";
 
-const Login = ({cookie, router}) => {
+const Login = ({cookie, router, login}) => {
     const [statusMessage, setStatusMessage] = useState({error: null, success: null});
 
     return (
@@ -16,7 +15,7 @@ const Login = ({cookie, router}) => {
                 initialValues={loginInitialValues}
                 validate={validateLogin}
                 onSubmit={(values, submitProps) => {
-                    //login(values, submitProps, setStatusMessage, statusMessage, cookie, router);
+                    login(values, submitProps, setStatusMessage, statusMessage, cookie, router);
                 }}
             > 
                 {(values) => (
